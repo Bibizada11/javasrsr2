@@ -6,20 +6,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Notebook {
+public class Computer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
-    private String model ;
-    private String company ;
-    private String strana ;
+    private String mdl ;
+    private String comp ;
+    private String country;
 
-    public Notebook(){}
+    public Computer(){}
 
-    public Notebook(String model, String company, String strana) {
-        this.model = model;
-        this.company = company;
-        this.strana = strana;
+    public Computer(String mdl, String comp, String country) {
+        this.mdl = mdl;
+        this.comp = comp;
+        this.country = country;
     }
 
     public long getId() {
@@ -31,27 +31,27 @@ public class Notebook {
     }
 
     public String getModel() {
-        return model;
+        return mdl;
     }
 
     public void setModel(String model) {
-        this.model = model;
+        this.mdl = mdl;
     }
 
     public String getCompany() {
-        return company;
+        return comp;
     }
 
     public void setCompany(String company) {
-        this.company = company;
+        this.comp = comp;
     }
 
     public String getStrana() {
-        return strana;
+        return country;
     }
 
     public void setStrana(String strana) {
-        this.strana = strana;
+        this.country = country;
     }
 }
 

@@ -1,9 +1,7 @@
 package kz.kaznitu.lessons.controllers;
 
-import kz.kaznitu.lessons.models.Delivery;
-import kz.kaznitu.lessons.models.User;
-import kz.kaznitu.lessons.reposotories.DeliveryRepository;
-import kz.kaznitu.lessons.reposotories.UserRepository;
+import kz.kaznitu.lessons.models.Dostavka;
+import kz.kaznitu.lessons.reposotories.DostavkaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,65 +13,65 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/delivery")
-public class DeliveryController {
+public class Oslidostavka {
     @Autowired
-    private DeliveryRepository deliveryRepository;
+    private DostavkaRepository dostavkaRepository;
     private long a;
 
     @RequestMapping("/add")
     public String showForm(Model model) {
-        model.addAttribute("delivery", new Delivery());
+        model.addAttribute("delivery", new Dostavka());
         return "delivery_add_form";
     }
 
 
     @PostMapping("/add")
-    public String addDelivery(@ModelAttribute Delivery delivery) {
-        deliveryRepository.save(delivery);
+    public String addDelivery(@ModelAttribute Dostavka delivery) {
+        dostavkaRepository.save(delivery);
         return "redirect:/delivery/all";
     }
 
 
     @GetMapping("/all2")
     public @ResponseBody
-    Iterable<Delivery> allDeliveries() {
-        return deliveryRepository.findAll();
+    Iterable<Dostavka> allDeliveries() {
+        return dostavkaRepository.findAll();
     }
 
     @GetMapping("/all")
     public String allDeliveries2(Model model) {
-        List<Delivery> deliveries = (List<Delivery>) deliveryRepository.findAll();
+        List<Dostavka> deliveries = (List<Dostavka>) dostavkaRepository.findAll();
         model.addAttribute("deliveries", deliveries);
         return "deliveries";
     }
 
     @RequestMapping(value = "/deleteContact", method = RequestMethod.GET)
     public ModelAndView deleteContact(@RequestParam("id") long idd) {
-        deliveryRepository.deleteById(idd);
+        dostavkaRepository.deleteById(idd);
         return new ModelAndView("redirect:/delivery/all");
 
     }
 
     @PostMapping("/editDeliveryy")
-    public String editDelivery(@ModelAttribute Delivery delivery) {
-        Delivery delivery1 = new Delivery();
-        delivery1.setId(a);
-        delivery1.setCity(delivery.getCity());
-        delivery1.setMagazin(delivery.getMagazin());
+    public String editDelivery(@ModelAttribute Dostavka delivery) {
+        Dostavka dostavka = new Dostavka();
+        dostavka.setId(a);
+        dostavka.setCity(delivery.getCity());
+        dostavka.setMagazin(delivery.getMagazin());
         return "redirect:/delivery/all2";
     }
 
     @RequestMapping(value = "/editDelivery", method = RequestMethod.GET)
     public ModelAndView editDelivery(Model model, @RequestParam("id") long id) {
         a = id;
-        Optional<Delivery> delivery = (Optional<Delivery>) deliveryRepository.findById(id);
+        Optional<Dostavka> delivery = (Optional<Dostavka>) dostavkaRepository.findById(id);
         model.addAttribute("delivery", delivery);
         return new ModelAndView("editDelivery");
     }
 
     @RequestMapping("/editDelivery")
     public String showForm2(Model model) {
-        model.addAttribute("delivery", new Delivery());
+        model.addAttribute("delivery", new Dostavka());
         return "editDelivery";
     }
 }

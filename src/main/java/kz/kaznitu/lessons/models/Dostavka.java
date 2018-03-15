@@ -3,17 +3,17 @@ package kz.kaznitu.lessons.models;
 import javax.persistence.*;
 
 @Entity
-public class Delivery {
+public class Dostavka {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String city;
     private String magazin;
 
-    public Delivery() {
+    public Dostavka() {
     }
 
-    public Delivery(String city, String magazin) {
+    public Dostavka(String city, String magazin) {
         this.city = city;
         this.magazin = magazin;
     }

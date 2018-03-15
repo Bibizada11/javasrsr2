@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Add Teacher page</title>
+    <title>Add computer page</title>
     <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}" />
 </head>
 <body>
@@ -17,11 +17,11 @@
                 <label for="company">Company</label>
                 <input type="text" id="company" name="company" th:field = "*{company}" class="form-control" placeholder="Enter your company" />
 
-                <label for="strana">Starana Proizvoditel</label>
+                <label for="strana">Country</label>
                 <input type="text" id="strana" name="strana" th:field = "*{strana}" class="form-control" placeholder="Enter your strana"/>
 
                 <br/>
-                <button type="submit" class="btn btn-primary">Сақтау</button>
+                <button type="submit" class="btn btn-primary">Save</button>
 
             </form>
         </div>
