@@ -10,15 +10,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="form-group">
-            <form action="#" th:action="@{/stud/add}" th:object = "${student}" method="POST">
+            <form action="#" th:action="@{/user/add}" th:object = "${user}" method="POST">
                 <label for="firstname">First Name</label>
                 <input type="text" id="firstname" name="firstname" th:field = "*{firstName}" class="form-control" placeholder="Enter your firtname" />
 
                 <label for="lastname">Last Name</label>
                 <input type="text" id="lastname" name="lastname" th:field = "*{lastName}" class="form-control" placeholder="Enter your lastname" />
 
-                <label for="course">Course</label>
-                <input type="course" id="course" name="course" th:field = "*{course}" class="form-control" placeholder="Enter your course"/>
+                <label for="number">Number</label>
+                <input type="number" id="number" name="number" th:field = "*{number}" class="form-control" placeholder="Enter your number"/>
+
+                <label for="city">City</label>
+                <input type="city" id="city" name="city" th:field = "*{city}" class="form-control" placeholder="Enter your city"/>
+
+                <label for="street">Street</label>
+                <input type="street" id="street" name="street" th:field = "*{street}" class="form-control" placeholder="Enter your street"/>
 
                 <br/>
                 <button type="submit" class="btn btn-primary">Сақтау</button>

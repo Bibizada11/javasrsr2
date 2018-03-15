@@ -14,15 +14,19 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>email</th>
+                <th>number</th>
+                <th>city</th>
+                <th>street</th>
             </tr>
-            <tr th:each = "teacher : ${teachers}">
-                <td th:text = "${teacher.firstName}">test</td>
-                <td th:text = "${teacher.lastName}">test</td>
-                <td th:text = "${teacher.email}">test</td>
-                <td> <a th:href = "@{'/demo/deleteContact?id='+${teacher.id}}">delete</a></td>
-                <td><a th:href = "@{/demo/add}"  role="button">add</a></td>
-                <td> <a th:href="@{'/demo/editTeach?id='+${teacher.id}}">Edit</a></td>
+            <tr th:each = "user : ${users}">
+                <td th:text = "${user.firstName}">test</td>
+                <td th:text = "${user.lastName}">test</td>
+                <td th:text = "${user.number}">test</td>
+                <td th:text = "${user.city}">test</td>
+                <td th:text = "${user.street}">test</td>
+                <td> <a th:href = "@{'/user/deleteContact?id='+${user.id}}">delete</a></td>
+                <td><a th:href = "@{/user/add}"  role="button">add</a></td>
+                <td> <a th:href="@{'/user/editUser?id='+${user.id}}">Edit</a></td>
             </tr>
         </table>
     </div>

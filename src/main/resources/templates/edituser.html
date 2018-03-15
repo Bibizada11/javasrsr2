@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="form-group">
+            <form action="#" th:action="@{/user/editUserr}" th:object = "${user}" method="POST">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" th:field = "*{firstName}" class="form-control" placeholder="Enter your firtname" value="${delivery.firstName}" />
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" th:field = "*{lastName}" class="form-control" placeholder="Enter your lastname" value="${delivery.lastName}" />
+                <label for="number">Number</label>
+                <input type="text" id="number" name="number" th:field = "*{number}" class="form-control" placeholder="Enter your course" value="${delivery.number}"/>
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" th:field = "*{city}" class="form-control" placeholder="Enter your course" value="${delivery.city}"/>
+                <label for="street">Street</label>
+                <input type="text" id="street" name="street" th:field = "*{street}" class="form-control" placeholder="Enter your course" value="${delivery.street}"/>
+                <br/>
+                <button type="submit" class="btn btn-primary">Сақтау</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script th:src = "@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+</body>
+</html>

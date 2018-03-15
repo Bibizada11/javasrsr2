@@ -12,22 +12,21 @@
         <br/>
         <table class="table">
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>course</th>
+                <th>Model</th>
+                <th>Company</th>
+                <th>Starana Proizvoditel</th>
             </tr>
-            <tr th:each = "student : ${students}">
-                <td th:text = "${student.firstName}">test</td>
-                <td th:text = "${student.lastName}">test</td>
-                <td th:text = "${student.course}">test</td>
-                <td> <a th:href = "@{'/stud/deleteContact?id='+${student.id}}">delete</a></td>
-                <td><a th:href = "@{/stud/add}"  role="button">add</a></td>
-                <td> <a th:href="@{'/stud/editStud?id='+${student.id}}">Edit</a></td>
+            <tr th:each = "notebook : ${notebooks}">
+                <td th:text = "${notebook.model}">test</td>
+                <td th:text = "${notebook.company}">test</td>
+                <td th:text = "${notebook.strana}">test</td>
+                <td> <a th:href = "@{'/notebook/deleteContact?id='+${notebook.id}}">delete</a></td>
+                <td><a th:href = "@{/notebook/add}"  role="button">add</a></td>
+                <td> <a th:href="@{'/notebook/editNotebook?id='+${notebook.id}}">Edit</a></td>
             </tr>
         </table>
     </div>
 </div>
-
 <script th:src = "@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 </body>
